@@ -1,0 +1,58 @@
+<div class="auth-page">
+<div class="sidenav">
+	<div class="login-main-text">
+    <img src="../../assets/main-logo.jpg" alt="" class="logo-image" >
+      <h1>GOOD FOODS</h1>
+    </div>
+</div>
+<div class="main">
+  <div class="col-md-6 col-sm-12">
+     <div class="login-form">
+         <div class="user_card">
+            <div class="brand_logo_container">
+                <img src="../../assets/loginLogo.jpg" class="brand_logo" alt="Logo">
+            </div>
+            <div class="form_container">
+              <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+                <div class="input-group mb-3 form-group" style="width: 300px;">
+                  <span class="input-group-addon transparent"><span class="glyphicon glyphicon-user"></span></span>
+                  <input type="email"
+                    id="email"
+                    class="form-control"
+                    ngModel
+                    name="email"
+                    required
+                    email
+                    placeholder="email"
+                  />
+                </div>
+                <div class="input-group mb-2 form-group">
+                  <span class="input-group-addon transparent"><span class="glyphicon glyphicon-lock"></span></span>
+                  <input type="password"
+                    id="password"
+                    class="form-control"
+                    ngModel
+                    name="password"
+                    required
+                    minlength="6"
+                    placeholder="password"
+                  />
+                </div>
+                <br>
+                <div class="d-flex justify-content-center mt-3 login_container">
+                  <button class="btn login_btn" type="submit" [disabled]="!authForm.valid">{{ isLoginMode ? 'Login' : 'Register'}}</button>
+                </div>
+                <br>
+                <div class="mt-4">
+                  <div class="d-flex justify-content-center links" style="text-align: center; color: #ecf0f1;">
+                    {{ isLoginMode ? 'Dont have an account?' : 'Already have an account?'}}
+                    <a (click)="onSwitchMode()" class="ml-2">{{ isLoginMode ? 'Register' : 'Login'}}</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+</div>
