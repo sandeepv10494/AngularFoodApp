@@ -1,48 +1,78 @@
 <div class="row">
-    <div class="col-md-6">
-        <img [src]="recipe.imagePath" alt="{{recipe.name}}" class="img-responsive" style="height: 300px;width: 300px;">
-    </div>
-    <div class="col-md-6">
-      <div class="row">
-        <h1>{{recipe.name | uppercase}}</h1>
+  <h2 style="text-align: center;">{{recipe.name | uppercase}}</h2>
+</div>
+<hr>
+<div class="row">
+  <div class="col-4">
+    <div class="row">
+      <div class="text-center">
+      <img [src]="recipe.imagePath" alt="{{recipe.name}}" class="img-thumbnail" style="height: 300px;width: 300px;">
       </div>
-      <div class="row">
-        <p>{{recipe.description}}</p>
+    </div>
+
+    <div class="row" style="width: 325px; margin-left: 35px; margin-top: 10px;">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button"
+                class="btn btn-primary"
+                (click)="onAddtoShoppingList()"
+                style="cursor: pointer;">
+                Add to cart
+        </button>
       </div>
     </div>
+
+    <div class="row" style="width: 325px; margin-left: 35px; margin-top: 10px;">
+      <div class="btn-group" role="group" aria-label="Basic outlined example">
+          <button type="button"
+                  class="btn btn-outline-secondary"
+                  style="cursor: pointer;"
+                  (click)="onEditRecipe()">
+                  Edit
+          </button>
+          <button type="button"
+                  class="btn btn-outline-danger"
+                  style="cursor: pointer;" (click)="onDeleteRecipe()">
+                  Delete
+          </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-8">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/recipes">Recipes</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{recipe.name}}</li>
+      </ol>
+    </nav>
+    <div class="row">
+      <div class="h4">Details</div>
+      <p>{{recipe.description}}</p>
+    </div>
+    <div class="row">
+      <div class="h4">Cuisine</div>
+      <p>{{recipe.cuisineType}}</p>
+    </div>
+    <div class="row">
+      <div class="h4">Steps</div>
+      <p *ngFor="let step of recipe.steps; let i = index">
+        Step {{i+1}} : {{step.name}}
+      </p>
+    </div>
+    <div class="row">
+      <div class="h4">Ingredients</div>
+      <div class="card" style="width: 25rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between align-items-center"
+        *ngFor="let ingredient of recipe.ingredients">
+        {{ ingredient.name }}
+        <span class="badge bg-secondary rounded-pill">{{ ingredient.amount }}</span>
+        </li>
+    </ul>
+      </div>
+    </div>
+    <div class="row">
+      <p></p>
+    </div>
+  </div>
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <div
-      class="btn-group"
-      appDropdown>
-      <button
-        type="button"
-        class="btn btn-primary dropdown-toggle" style="margin-top: 5px; margin-bottom: 5px;">
-        Manage Recipe <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a (click)="onAddtoShoppingList()" style="cursor: pointer;">To Shopping List</a></li>
-        <li><a style="cursor: pointer;" (click)="onEditRecipe()">Edit Recipe</a></li>
-        <li><a style="cursor: pointer;" (click)="onDeleteRecipe()">Delete Recipe</a></li>
-      </ul>
-    </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <ul class="list-group">
-            <li class="list-group-item"
-            *ngFor="let ingredient of recipe.ingredients">
-            <span class="badge">{{ ingredient.amount }}</span>
-              {{ ingredient.name }}
-            </li>
-        </ul>
-    </div>
-</div>

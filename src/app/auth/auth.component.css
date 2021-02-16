@@ -1,7 +1,12 @@
 .auth-page {
-  background: url("../../assets/Mathews-Cafe1.jpg");
-  height: 100vh;
-  width: 94.5vw;
+  background: url("../../assets/brooke-lark-wMzx2nBdeng-unsplash.jpg");
+  min-height: 577px;
+  min-width: 1000px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .logo-image {
@@ -15,7 +20,6 @@
 
 body {
   font-family: "Lato", sans-serif;
-  background: url("../../assets/loginpage.jpg");
 }
 
 .main-head {
@@ -31,7 +35,6 @@ body {
 
 .main {
   padding: 0px 10px;
-  background: url("../../assets/loginpage.jpg");
 }
 
 @media screen and (max-height: 450px) {
@@ -43,7 +46,6 @@ body {
 @media screen and (max-width: 450px) {
   .login-form {
     margin-top: 10%;
-    background-image: "../../assets/loginpage.jpg";
   }
 
   .register-form {
@@ -54,7 +56,6 @@ body {
 @media screen and (min-width: 768px) {
   .main {
     margin-left: 40%;
-    background: url("../../assets/loginpage.jpg");
   }
 
   .sidenav {
@@ -104,7 +105,7 @@ body {
   -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
-  margin-left: 55%;
+  margin-left: 50%;
 }
 .brand_logo_container {
   position: absolute;

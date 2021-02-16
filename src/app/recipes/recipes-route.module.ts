@@ -14,10 +14,11 @@ const recipeRoutes: Routes = [
     canActivate: [AuthGuard],
     children:[
     { path: '', component: RecipeStartComponent},
-    { path: 'new', component: RecipeEditComponent},
-    { path: ':id', component: RecipeDetailsComponent, resolve:[RecipeResolverService]},
-    { path: ':id/edit', component: RecipeEditComponent, resolve:[RecipeResolverService]}
   ]},
+  { path: 'new', component:RecipeEditComponent},
+  { path: ':id', component: RecipeDetailsComponent, canActivate: [AuthGuard], resolve:[RecipeResolverService]},
+  { path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuard], resolve:[RecipeResolverService]},
+
 ]
 
 @NgModule({

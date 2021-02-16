@@ -1,17 +1,8 @@
-<a
-  style="cursor: pointer;"
-  [routerLink]="[index]"
-  routerLinkActive="active"
-  class="list-group-item clearfix">
-  <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
-    <!--p class="list-group-item-text">{{ recipe.description }}</p-->
+ <div class="card text-light bg-secondary h-100" style="max-width: 16rem;cursor: pointer; margin-right: 10px;" [routerLink]="[index]" routerLinkActive="active">
+  <div class="text-center">
+  <img class="card-img-top" [src]="recipe.imagePath" alt="Card image cap" style="height: 250px; width: 250px;">
   </div>
-  <span class="pull-right">
-        <img
-          [src]="recipe.imagePath"
-          alt="{{ recipe.name }}"
-          class="img-responsive"
-          style="height: 50px;width: 50px;">
-      </span>
-</a>
+  <div class="card-body">
+      <h5 class="card-title" style="text-align: center;">{{ recipe.name | uppercase}}</h5>
+  </div>
+ </div>

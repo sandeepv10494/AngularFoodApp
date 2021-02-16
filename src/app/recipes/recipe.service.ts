@@ -8,33 +8,7 @@ import { Recipe } from './recipe.model';
 export class RecipeService {
 
     recipesChanged = new Subject<Recipe[]>();
-
-    /*private recipes: Recipe[] = [
-        new Recipe(
-            'Masala Dose',
-            'Famous south indian recipe',
-            'https://www.cookwithmanali.com/wp-content/uploads/2020/05/Masala-Dosa-500x500.jpg',
-            [
-                new Ingredient('Potatoes', 3),
-                new Ingredient('Onions', 5),
-                new Ingredient('Coconut', 1),
-                new Ingredient('Dosa-batter', 1)
-            ]
-        ),
-        new Recipe(
-            'Idli Vada',
-            'Go to south indian breakfast',
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Idly_sambar_vada.JPG/240px-Idly_sambar_vada.JPG',
-            [
-                new Ingredient('Onions', 5),
-                new Ingredient('Coconut', 1),
-                new Ingredient('Green chilly', 5),
-                new Ingredient('Idli-batter', 1),
-                new Ingredient('Vada-batter', 1)
-            ]
-        )
-      ];*/
-      private recipes: Recipe[] = [];
+    private recipes: Recipe[] = [];
 
     constructor(private slService:ShoppingListService){}
 

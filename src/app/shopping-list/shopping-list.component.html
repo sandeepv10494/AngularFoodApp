@@ -1,17 +1,17 @@
 <div class="row">
-    <div class="col-xs-10">
+    <div class="col-8" style="margin-left: 20px;">
       <app-shopping-edit></app-shopping-edit>
       <hr>
-      <ul class="list-group">
-        <a
-          class="list-group-item"
-          style="cursor: pointer"
-          *ngFor="let ingredient of ingredients; let i = index"
-          (click)="onEditItem(i)"
-        >
-        <span class="badge">{{ ingredient.amount }}</span>
-          {{ ingredient.name }}
-        </a>
+      <div class="card" style="width: 18rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between align-items-center"
+            style="cursor: pointer"
+            *ngFor="let ingredient of ingredients; let i = index"
+            (click)="onEditItem(i)">
+            {{ ingredient.name }}
+            <span class="badge bg-primary rounded-pill">{{ ingredient.amount }}</span>
+        </li>
       </ul>
     </div>
   </div>
+</div>
