@@ -15,7 +15,7 @@
             <div class="form_container">
               <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
                 <div class="input-group mb-3 form-group" style="width: 300px;">
-                  <span class="input-group-addon transparent"><span class="glyphicon glyphicon-user"></span></span>
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                   <input type="email"
                     id="email"
                     class="form-control"
@@ -27,7 +27,7 @@
                   />
                 </div>
                 <div class="input-group mb-2 form-group">
-                  <span class="input-group-addon transparent"><span class="glyphicon glyphicon-lock"></span></span>
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
                   <input type="password"
                     id="password"
                     class="form-control"
@@ -40,7 +40,9 @@
                 </div>
                 <br>
                 <div class="d-flex justify-content-center mt-3 login_container">
-                  <button class="btn login_btn" type="submit" [disabled]="!authForm.valid">{{ isLoginMode ? 'Login' : 'Register'}}</button>
+                  <button class="btn login_btn" type="submit" [disabled]="!authForm.valid">
+                    {{ isLoginMode ? 'Login' : 'Register'}}
+                  </button>
                 </div>
                 <br>
                 <div class="mt-4">

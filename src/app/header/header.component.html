@@ -1,20 +1,85 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="isUserAuthenticated" style="margin-bottom: 10px;" >
+<nav class="navbar fixed-top navbar-expand navbar-dark bg-dark" *ngIf="isUserAuthenticated" style="height: 60px;" >
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <img alt="Brand" src="../../assets/main-logo.jpg">
         GOOD FOODS
     </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-top: 15px;">
         <li class="nav-item" routerLinkActive="active" *ngIf="isUserAuthenticated">
-          <a routerLink="/recipes" class="nav-link">Recipes</a>
+          <a routerLink="/recipes" class="nav-link" style="color: white;">Recipes</a>
         </li>
-        <li class="nav-item" routerLinkActive="active" *ngIf="isUserAuthenticated">
-          <a class="nav-link" routerLink="/shopping-list">Shopping List</a>
+        <li style="margin-left: 150px;align-items: center;margin-top: 5px;">
+          <div class="input-group mb-3">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search" aria-describedby="button-addon2"style="width: 400px;">
+          <button class="btn btn-outline-light" type="button" id="button-addon2"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </div>
         </li>
       </ul>
-      <form class="d-flex">
-        <button class="btn btn-secondary" type="button" (click)="onLogOut()">LogOut</button>
+      <form class="d-flex" style="margin-right: 5px;">
+        <div class="dropdown" style="margin-left: 5px;">
+          <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Sandeep V
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+            <li>
+              <a class="dropdown-item">
+                <i class="fa fa-user-circle" aria-hidden="true" style="margin-right: 5px;"></i>
+                My Profile
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item">
+                <i class="fa fa-shopping-basket" aria-hidden="true" style="margin-right: 5px;"></i>
+                My Orders
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item">
+                <i class="fa fa-heart" aria-hidden="true" style="margin-right: 5px;"></i>
+                Wishlist
+                <span class="badge bg-light text-dark" style="margin-left: 50px;">0</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item">
+                <i class="fa fa-bell" aria-hidden="true" style="margin-right: 5px;"></i>
+                Notifications
+                <span class="badge bg-light text-dark" style="margin-left: 15px;">0</span>
+              </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <a class="dropdown-item" (click)="onLogOut()">
+                <i class="fa fa-power-off" aria-hidden="true" style="margin-right: 5px;"></i>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </form>
+      <form class="d-flex" style="margin-right: 5px;">
+        <div class="dropdown" style="margin-left: 5px;">
+          <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            More
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+            <li>
+              <a class="dropdown-item" routerLink="/recipes/new">
+                <i class="fa fa-plus-circle" aria-hidden="true" style="margin-right: 5px;"></i>
+                New Recipe
+              </a>
+            </li>
+          </ul>
+        </div>
+      </form>
+      <form class="d-flex" style="margin-right: 5px;" *ngIf="isUserAuthenticated">
+        <button type="button" class="btn btn-dark" routerLink="/shopping-list">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            Cart
+          <span class="badge bg-light text-dark">9</span>
+          <span class="visually-hidden">unread messages</span>
+        </button>
       </form>
     </div>
   </div>

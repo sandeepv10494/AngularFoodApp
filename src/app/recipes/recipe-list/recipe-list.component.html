@@ -1,12 +1,12 @@
 <div class="container-fluid">
 
-  <div class="row" style="margin-top: 10px;">
+  <!--div class="row" style="margin-top: 80px;">
     <div class="col-md-6">
       <button type="button" class="btn btn-primary" (click)="onNewRecipe()">New Recipe</button>
     </div>
-  </div>
+  </div-->
 
-  <div class="card-group" style="margin-top: 10px; margin-left: 5%;">
+  <div class="card-group" style="margin-top: 80px; margin-left: 5%;">
       <app-recipe-item
         *ngFor="let recipeEl of recipes; let i = index"
         [recipe]="recipeEl"

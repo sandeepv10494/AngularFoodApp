@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" style="margin-top: 80px;">
   <h2 style="text-align: center;">{{recipe.name | uppercase}}</h2>
 </div>
 <hr>
@@ -12,15 +12,16 @@
 
     <div class="row" style="width: 325px; margin-left: 35px; margin-top: 10px;">
       <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button"
-                class="btn btn-primary"
-                (click)="onAddtoShoppingList()"
-                style="cursor: pointer;">
-                Add to cart
+        <button type="button" class="btn btn-primary" style="width: 250px;">Add to cart</button>
+        <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="visually-hidden">Toggle Dropdown</span>
         </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" (click)="onAddRecipetoShoppingList()">Add {{recipe.name}} to cart</a></li>
+          <li><a class="dropdown-item" (click)="onAddtoShoppingList()">Add {{recipe.name}} ingredients to cart</a></li>
+        </ul>
       </div>
     </div>
-
     <div class="row" style="width: 325px; margin-left: 35px; margin-top: 10px;">
       <div class="btn-group" role="group" aria-label="Basic outlined example">
           <button type="button"
