@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 import * as fromApp from '../../store/app.reducer';
-import * as RecipeActions from '../store/recipe.actions';
 
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
@@ -20,7 +19,6 @@ export class RecipeDetailsComponent implements OnInit {
 
   constructor(private recipeService:RecipeService,
               private route: ActivatedRoute,
-              private router: Router,
               private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
@@ -49,13 +47,4 @@ export class RecipeDetailsComponent implements OnInit {
     this.recipeService.addIngredientsToShoppingList(ingredients);
   }
 
-  onEditRecipe(){
-    this.router.navigate(['edit'], {relativeTo: this.route});
-  }
-
-  onDeleteRecipe(){
-    this.store.dispatch(new RecipeActions.DeleteRecipe(this.id));
-    this.store.dispatch(new RecipeActions.StoreRecipes());
-    this.router.navigate(['/recipes']);
-  }
 }

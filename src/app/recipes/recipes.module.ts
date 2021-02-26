@@ -1,4 +1,4 @@
-  import { NgModule } from "@angular/core";
+import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { SharedModule } from "../shared/shared.module";
@@ -7,6 +7,7 @@ import { RecipeEditComponent } from "./recipe-edit/recipe-edit.component";
 import { RecipeItemComponent } from "./recipe-list/recipe-item/recipe-item.component";
 import { RecipeListComponent } from "./recipe-list/recipe-list.component";
 import { RecipeStartComponent } from "./recipe-start/recipe-start.component";
+import { RecipesManageComponent } from "./recipes-manage/recipes-manage.component";
 import { RecipeRouteModule } from "./recipes-route.module";
 import { RecipesComponent } from "./recipes.component";
 
@@ -14,6 +15,7 @@ import { RecipesComponent } from "./recipes.component";
   declarations: [
     RecipesComponent,
     RecipeListComponent,
+    RecipesManageComponent,
     RecipeItemComponent,
     RecipeDetailsComponent,
     RecipeEditComponent,

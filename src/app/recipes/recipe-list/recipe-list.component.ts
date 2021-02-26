@@ -28,6 +28,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     .subscribe(
       (recipes: Recipe[]) => {
         this.recipes = recipes;
+        console.log(this.recipes)
       }
     );
   }

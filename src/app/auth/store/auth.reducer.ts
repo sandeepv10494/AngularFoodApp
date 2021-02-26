@@ -1,8 +1,8 @@
-import { User } from "../user.model";
+import { LoggedInUser } from "../loggedInUser.model";
 import * as AuthActions  from "./auth.actions";
 
 export interface State {
-  user: User;
+  user: LoggedInUser;
   authError: string;
   loading: boolean
 }
@@ -17,7 +17,7 @@ export function AuthReducer(state = initialState, action: AuthActions.AuthAction
 
     switch (action.type){
       case AuthActions.AUTHENTICATE_SUCCESS:
-        const user = new User(
+        const user = new LoggedInUser(
           action.payload.email,
           action.payload.userId,
           action.payload.token,

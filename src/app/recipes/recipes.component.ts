@@ -18,5 +18,4 @@ export class RecipesComponent implements OnInit {
     this.store.dispatch(new RecipeActions.FetchRecipes());
   }
 
-
 }

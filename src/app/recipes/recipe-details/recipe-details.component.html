@@ -12,8 +12,11 @@
 
     <div class="row" style="width: 325px; margin-left: 35px; margin-top: 10px;">
       <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary" style="width: 250px;">Add to cart</button>
-        <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+        <button type="button" class="btn btn-secondary btn-lg" style="width: 250px;">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          ADD TO CART
+        </button>
+        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
           <span class="visually-hidden">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu dropdown-menu-dark">
@@ -23,18 +26,11 @@
       </div>
     </div>
     <div class="row" style="width: 325px; margin-left: 35px; margin-top: 10px;">
-      <div class="btn-group" role="group" aria-label="Basic outlined example">
-          <button type="button"
-                  class="btn btn-outline-secondary"
-                  style="cursor: pointer;"
-                  (click)="onEditRecipe()">
-                  Edit
-          </button>
-          <button type="button"
-                  class="btn btn-outline-danger"
-                  style="cursor: pointer;" (click)="onDeleteRecipe()">
-                  Delete
-          </button>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-light btn-lg" style="width: 250px;">
+          <i class="fa fa-heart" aria-hidden="true" style="color: grey;"></i>
+          WISHLIST
+        </button>
       </div>
     </div>
   </div>

@@ -30,9 +30,15 @@ export class RecipeEffects {
 
   @Effect({dispatch: false})
   storeRecipes = this.actions$.pipe(
-    ofType(RecipeActions.STORE_RECIPES),
+    ofType(
+      RecipeActions.STORE_RECIPES,
+      RecipeActions.ADD_RECIPE,
+      RecipeActions.UPDATE_RECIPE,
+      RecipeActions.DELETE_RECIPE
+    ),
     withLatestFrom(this.store.select('recipes')),
     switchMap(([actionData, recipeState]) => {
+      console.log(recipeState.recipes);
       return this.http.put('https://food-app-7b748-default-rtdb.firebaseio.com/recipes.json', recipeState.recipes);
     })
   )

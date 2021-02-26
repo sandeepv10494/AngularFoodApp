@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { AlertComponent } from '../shared/alert/alert.component';
 import { PlaceholderDirective } from '../shared/placeholder.directive';
 import * as fromApp from '../store/app.reducer';
+import { UserService } from '../User/user.service';
 import * as AuthActions from './store/auth.actions';
 
 @Component({
@@ -23,7 +24,8 @@ export class AuthComponent implements OnInit , OnDestroy{
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
-    private store: Store<fromApp.AppState>
+    private store: Store<fromApp.AppState>,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -59,6 +61,9 @@ export class AuthComponent implements OnInit , OnDestroy{
     if(this.isLoginMode){
       this.store.dispatch(new AuthActions.LoginStart({email:email, password:password}));
     } else {
+      const name = form.value.fullName;
+      console.log(name);
+      this.userService.setUserDetails(name,email);
       this.store.dispatch(new AuthActions.SignUpStart({email:email, password:password}));
     }
 

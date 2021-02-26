@@ -14,6 +14,18 @@
             </div>
             <div class="form_container">
               <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+                <div class="input-group mb-3 form-group" style="width: 300px;" *ngIf="!isLoginMode">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+                  <input type="text"
+                    id="fullName"
+                    class="form-control"
+                    ngModel
+                    name="fullName"
+                    required
+                    fullName
+                    placeholder="Full Name"
+                  />
+                </div>
                 <div class="input-group mb-3 form-group" style="width: 300px;">
                   <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                   <input type="email"
@@ -44,7 +56,7 @@
                     {{ isLoginMode ? 'Login' : 'Register'}}
                   </button>
                 </div>
-                <br>
+
                 <div class="mt-4">
                   <div class="d-flex justify-content-center links" style="text-align: center; color: #ecf0f1;">
                     {{ isLoginMode ? 'Dont have an account?' : 'Already have an account?'}}

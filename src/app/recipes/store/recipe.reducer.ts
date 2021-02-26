@@ -27,14 +27,15 @@ export function RecipeReducer(state = initialState, action: RecipeActions.Recipe
       updatedRecipes[action.payload.index] = updatedRecipe
       return {
         ...state,
-        return: updatedRecipes
+        recipes: updatedRecipes
       };
     case RecipeActions.DELETE_RECIPE:
+      const stateRecipes = [...state.recipes];
+      stateRecipes.splice(action.payload, 1);
+      console.log(stateRecipes);
       return {
         ...state,
-        return: state.recipes.filter((recipe,index)=>{
-          return index !== action.payload;
-        })
+        recipes: stateRecipes
       };
     default:
       return state;

@@ -7,8 +7,9 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
 import * as AuthActions from './auth.actions';
-import { User } from '../user.model';
+import { LoggedInUser } from '../loggedInUser.model';
 import { AuthService } from '../auth.service';
+import { UserService } from 'src/app/User/user.service';
 
 export interface AuthResponseData {
   kind: string;
@@ -27,7 +28,7 @@ const handleAuthentication = (
   token: string
 ) => {
   const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
-  const user = new User(email, userId, token, expirationDate);
+  const user = new LoggedInUser(email, userId, token, expirationDate);
   localStorage.setItem('userData', JSON.stringify(user));
   return new AuthActions.AuthenticateSuccess({
     email: email,
@@ -78,6 +79,7 @@ export class AuthEffects {
             this.authService.setLogoutTimer(+resData.expiresIn * 1000);
           }),
           map(resData => {
+            this.userService.registerUser(resData.localId);
             return handleAuthentication(
               +resData.expiresIn,
               resData.email,
@@ -111,6 +113,7 @@ export class AuthEffects {
             this.authService.setLogoutTimer(+resData.expiresIn * 1000);
           }),
           map(resData => {
+            this.userService.getUser(resData.localId);
             return handleAuthentication(
               +resData.expiresIn,
               resData.email,
@@ -149,7 +152,7 @@ export class AuthEffects {
         return { type: 'DUMMY' };
       }
 
-      const loadedUser = new User(
+      const loadedUser = new LoggedInUser(
         userData.email,
         userData.id,
         userData._token,
@@ -187,6 +190,7 @@ export class AuthEffects {
     private actions$: Actions,
     private http: HttpClient,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService,
   ) {}
 }
